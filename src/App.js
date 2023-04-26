@@ -62,9 +62,12 @@ function App() {
       organizer: "",
       eventImage: "",
       date: "",
+      people: [],
     });
     setSelectOption("");
   }
+  
+  
 
   function handleAddEvent(event) {
     setEvents([event, ...events]);
