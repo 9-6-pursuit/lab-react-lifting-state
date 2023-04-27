@@ -4,16 +4,13 @@ import { v1 as generateUniqueID } from "uuid";
 // import Attendees from "./Attendees";
 // import Event from "./Components/Event";
 // import Footer from "./Components/Footer";
-// import Header from "./Components/Header";
+import Header from "./Components/Header";
 // import NewEventForm from "./Components/NewEventForm";
 
 function App() {
   const [events, setEvents] = useState(eventsData);
-
   const [showAttendees, setShowAttendees] = useState(false);
-
   const [selectOption, setSelectOption] = useState("");
-
   const [newEvent, setNewEvent] = useState({
     id: "",
     eventType: "",
@@ -70,8 +67,15 @@ function App() {
     setEvents([event, ...events]);
   }
 
-  function toggleEventAttendees() {
+  /*function toggleEventAttendees() {
     setShowAttendees(!showAttendees);
+  }*/
+  function toggleEventAttendees(eventId) {
+    setShowAttendees((prevShowAttendees) => {
+      const newShowAttendees = { ...prevShowAttendees };
+      newShowAttendees[eventId] = !newShowAttendees[eventId];
+      return newShowAttendees;
+    });
   }
 
   function updateEventAttendance(eventId, attendeeId) {
@@ -91,9 +95,7 @@ function App() {
   return (
     <div className="App">
       <>
-        <header>
-          <h1 className="color-change-5x">RSVP App</h1>
-        </header>
+        <Header />
       </>
       <main>
         <div className="new-event">
@@ -153,11 +155,13 @@ function App() {
                     <span>Organized by: {event.organizer} </span>
                     <br />
                     <>
-                      <button onClick={toggleEventAttendees}>
-                        {!showAttendees ? "Show Attendees" : "Hide Attendees"}
+                      <button onClick={() => toggleEventAttendees(event.id)}>
+                        {!showAttendees[event.id]
+                          ? "Show Attendees"
+                          : "Hide Attendees"}
                       </button>
 
-                      {showAttendees ? (
+                      {showAttendees[event.id] ? (
                         <div className="attendees">
                           {attendees.map((attendee, index) => (
                             <>
