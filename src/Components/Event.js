@@ -1,9 +1,8 @@
-export default function Event() {
-  return(
-    <div className="events">
-    <ul>
-      {events.map((event) => {
-        const { people: attendees } = event;
+//import { update } from "cypress/types/lodash";
+import Attendees from "./Attendees";
+
+export default function Event( { event, attendees, toggleEventAttendees, showAttendees, updateEventAttendance } ) {
+
 
         return (
           <>
@@ -24,39 +23,10 @@ export default function Event() {
                   <div className="attendees">
                     {attendees.map((attendee, index) => (
                       <>
-                        <div key={attendee.id} className="attendee">
-                          <p>
-                            <img
-                              src={attendee.avatar}
-                              alt={attendee.firstName}
-                            />
-                            {"   "}
-                            <span>
-                              {" "}
-                              {attendee.firstName} {attendee.lastName}{" "}
-                            </span>
-                          </p>
-                          <p>
-                            <button
-                              className="clickable"
-                              onClick={() =>
-                                updateEventAttendance(
-                                  event.id,
-                                  attendee.id
-                                )
-                              }
-                            >
-                              Attending:
-                            </button>
-                            <span>
-                              {attendee.attendance ? "✅" : "❌"}
-                            </span>
-                          </p>
-
-                          <p>
-                            <span>Note:</span> {attendee.note}
-                          </p>
-                        </div>
+                      <Attendees
+                        attendee={attendee}
+                        updateEventAttendance={updateEventAttendance}
+                        />
                       </>
                     ))}
                   </div>
@@ -65,8 +35,4 @@ export default function Event() {
             </li>
           </>
         );
-      })}
-    </ul>
-  </div>
-  );
-}
+      }

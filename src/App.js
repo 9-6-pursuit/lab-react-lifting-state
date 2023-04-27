@@ -2,7 +2,7 @@ import { useState } from "react";
 import eventsData from "./data";
 import { v1 as generateUniqueID } from "uuid";
 // import Attendees from "./Attendees";
-// import Event from "./Components/Event";
+import Event from "./Components/Event";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import NewEventForm from "./Components/NewEventForm";
@@ -89,24 +89,47 @@ function App() {
   }
 
   return (
+    <>
     <div className="App">
       <>
         <header>
           <Header />
         </header>
       </>
-      <main>
-        
+      <main>       
         <NewEventForm 
-        addEvent={addEvent} 
-        handleSubmit={handleSubmit} 
-        resetEventForm={resetEventForm} 
-        handleTextChange={handleTextChange} 
-        toggleEventAttendees={toggleEventAttendees}
-        updateEventAttendance={updateEventAttendance} />
+          addEvent={addEvent} 
+          events = {events}
+          handleSubmit={handleSubmit} 
+          resetEventForm={resetEventForm} 
+          handleTextChange={handleTextChange} 
+          toggleEventAttendees={toggleEventAttendees}
+          updateEventAttendance={updateEventAttendance} />
+
+        <div className="events">
+          <ul>
+            {events.map((event) => {
+            const { people: attendees } = event;
+
+            return (
+              <Event
+                event={event}
+                toggleEventAttendees={toggleEventAttendees}
+                showAttendees={showAttendees}
+                updateEventAttendance={updateEventAttendance}
+                attendees={attendees}
+              />
+            )
+            })}
+          </ul>
+        </div>
+
       </main>
-      <Footer />
+
     </div>
+
+    <Footer />
+    </>
   );
 }
 
