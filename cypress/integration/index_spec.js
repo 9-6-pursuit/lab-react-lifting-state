@@ -69,7 +69,7 @@ describe("can show/hide attendees per event", () => {
       .click()
       .then(() => {
         cy.get(".event")
-          .eq(2)
+        .eq(2)
           .within(() => {
             cy.get(".attendees").should("not.exist");
           });
