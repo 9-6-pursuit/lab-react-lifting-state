@@ -114,15 +114,14 @@ function App() {
               const { people: attendees } = event;
 
               return (
-                <>
-                  <Event
-                    event={event}
-                    showAttendees={showAttendees}
-                    attendees={attendees}
-                    toggleEventAttendees={toggleEventAttendees}
-                    updateEventAttendance={updateEventAttendance}
-                  />
-                </>
+                <Event
+                  key={event.id}
+                  event={event}
+                  showAttendees={showAttendees}
+                  attendees={attendees}
+                  toggleEventAttendees={toggleEventAttendees}
+                  updateEventAttendance={updateEventAttendance}
+                />
               );
             })}
           </ul>
