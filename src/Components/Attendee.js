@@ -1,5 +1,6 @@
 export default function Attendee({attendee,updateEventAttendance,event}) {
   return (
+    <>
     <div key={attendee.id} className="attendee">
       <p>
         <img
@@ -33,5 +34,6 @@ export default function Attendee({attendee,updateEventAttendance,event}) {
         <span>Note:</span> {attendee.note}
       </p>
     </div>
-  );
+  </>
+);
 }
