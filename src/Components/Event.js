@@ -17,23 +17,11 @@ export default function Event({
       <span>Organized by: {event.organizer} </span>
       <br />
       <>
-        {/* <button onClick={toggleEventAttendees}>
-                  {!showAttendees ? "Show Attendees" : "Hide Attendees"}
-                </button>
-
-                {showAttendees ? (
-                  <div className="attendees">
-                    {attendees.map((attendee, index) => (
-                      <>
-                      <Attendees
-                        attendee={attendee}
-                        updateEventAttendance={updateEventAttendance}
-                        />
-                      </>
-                    ))}
-                  </div>
-                ) : null} */}
+        <Attendees event={event} attendees={attendees} updateEventAttendance={updateEventAttendance} />
       </>
     </li>
   );
 }
+
+
+//I could NOT figure out how to do this. At all. I needed help with line 20 or even knowing that Attendees was supposed to go there.

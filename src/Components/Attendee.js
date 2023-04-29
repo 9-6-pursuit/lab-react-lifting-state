@@ -16,9 +16,9 @@ export default function Attendee(
       <p>
         <button
           className="clickable"
-          onClick={() =>
+          onClick={(e) =>
             updateEventAttendance(
-              event.id,
+              e.id,
               attendee.id
             )
           }
