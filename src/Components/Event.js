@@ -1,9 +1,9 @@
 import Attendees from "./Attendees";
 
-export default function Event({event, attendees, showAttendees, toggleEventAttendees, updateEventAttendance}) {
+export default function Event({event, attendees, updateEventAttendance}) {
   return (
     <>
-      <li key={event.id}>
+      <li key={event.id} className="event">
         <img src={event.eventImage} alt={event.name} />
         <h5>
           {event.name} {event.eventType}
@@ -14,8 +14,6 @@ export default function Event({event, attendees, showAttendees, toggleEventAtten
         <Attendees 
           event={event}
           attendees={attendees}
-          showAttendees={showAttendees}
-          toggleEventAttendees={toggleEventAttendees}
           updateEventAttendance={updateEventAttendance}
         />
       </li>
