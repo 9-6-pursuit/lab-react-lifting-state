@@ -1,6 +1,18 @@
 import Attendee from "./Attendee"
 
-export default function Attendees({ attendee, showAttendees, updateEventAttendance }) {
+
+//note: consider having event, attendees, and updateEventAttendance as the props, per Jinseok.
+
+export default function Attendees({ attendee, showAttendees, updateEventAttendance, toggleEventAttendees }) {
+
+
+/* note: I did not think to put the useState and toggleEventAttendees here instead of in App.js
+  const [showAttendees, setShowAttendees] = useState(false)
+  function toggleEventAttendees() {
+    setShowAttendees(!showAttendees);
+  }
+  */
+
   return(
     <>
       <button onClick={toggleEventAttendees}>
@@ -10,17 +22,15 @@ export default function Attendees({ attendee, showAttendees, updateEventAttendan
         <div className="attendees">
          {attendees.map((attendee, index) => (
           <>
-            <Attendee />
+            <Attendee 
+            attendee={attendee}
+            updateEventAttendance={updateEventAttendance}/>
           </>
-     ))}
+       ))}
          </div>
-           ) 
-                      
-                      : null}
+           )  : null}
                     </>
-                  </li>
-                </>
-              );
-            })}
-          </ul>
+                    );
+                    }
+
  

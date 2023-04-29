@@ -5,7 +5,6 @@ export default function Event({
   event,
   attendees,
   toggleEventAttendees,
-  showAttendees,
   updateEventAttendance,
 }) {
   return (
