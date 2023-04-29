@@ -1,7 +1,7 @@
 import { useState } from "react";
 import eventsData from "./data";
 import { v1 as generateUniqueID } from "uuid";
-// import Attendees from "./Attendees";
+import Attendees from "./Attendees";
 import Event from "./Components/Event";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
@@ -92,42 +92,50 @@ function App() {
     <>
     <div className="App">
       <>
-        <header>
           <Header />
-        </header>
       </>
-      <main>       
-        <NewEventForm 
-          addEvent={addEvent} 
-          events = {events}
-          handleSubmit={handleSubmit} 
-          resetEventForm={resetEventForm} 
-          handleTextChange={handleTextChange} 
-          toggleEventAttendees={toggleEventAttendees}
-          updateEventAttendance={updateEventAttendance} />
-
+      <main> 
+        <div className="new-event">
+            <>      
+              <NewEventForm 
+                addEvent={addEvent} 
+                newEvent={newEvent}
+                events = {events}
+                handleSubmit={handleSubmit} 
+                resetEventForm={resetEventForm} 
+                handleTextChange={handleTextChange} 
+                toggleEventAttendees={toggleEventAttendees}
+                updateEventAttendance={updateEventAttendance} />
+            </>
+          </div>
         <div className="events">
           <ul>
             {events.map((event) => {
             const { people: attendees } = event;
 
             return (
-              <Event
-                event={event}
-                toggleEventAttendees={toggleEventAttendees}
-                showAttendees={showAttendees}
-                updateEventAttendance={updateEventAttendance}
-                attendees={attendees}
-              />
+              <>
+                <Event
+                  event={event}
+                  toggleEventAttendees={toggleEventAttendees}
+                  showAttendees={showAttendees}
+                  updateEventAttendance={updateEventAttendance}
+                  attendees={attendees}
+                />
+              </>
             )
             })}
           </ul>
         </div>
-
+        <div className="attendees">
+          <>
+            <Attendees />
+          </>
+        </div>
       </main>
 
     </div>
-
+    
     <Footer />
     </>
   );

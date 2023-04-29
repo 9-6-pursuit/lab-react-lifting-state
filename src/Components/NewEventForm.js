@@ -1,9 +1,6 @@
-export default function NewEventForm({ handleAddEvent, handleSubmit, handleTextChange, newEvent, showAttendees, events, handleSelectChange, toggleEventAttendees, updateEventAttendance }) {
+export default function NewEventForm({ handleAddEvent, handleSubmit, handleTextChange, newEvent,  handleSelectChange }) {
   
   return(
-    <>
-    <div className="new-event">
-          <>
             <form onSubmit={handleSubmit}>
               <h3>Create a new event</h3>
               <label htmlFor="name">Event name:</label>
@@ -11,7 +8,7 @@ export default function NewEventForm({ handleAddEvent, handleSubmit, handleTextC
                 type="text"
                 id="name"
                 onChange={handleTextChange}
-                value={"newEvent.name"}
+                value={newEvent.name}
               />
 
               <label htmlFor="organizer">Organizer:</label>
@@ -19,7 +16,7 @@ export default function NewEventForm({ handleAddEvent, handleSubmit, handleTextC
                 type="text"
                 id="organizer"
                 onChange={handleTextChange}
-                value={"newEvent.organizer"}
+                value={newEvent.organizer}
               />
 
               <label htmlFor="eventImage">Event image:</label>
@@ -27,7 +24,7 @@ export default function NewEventForm({ handleAddEvent, handleSubmit, handleTextC
                 type="text"
                 id="eventImage"
                 onChange={handleTextChange}
-                value={"newEvent.eventImage"}
+                value={newEvent.eventImage}
               />
               <label htmlFor="eventType">Event type:</label>
               <select id="eventType" onChange={handleSelectChange}>
@@ -41,9 +38,5 @@ export default function NewEventForm({ handleAddEvent, handleSubmit, handleTextC
               <br />
               <input type="submit" />
             </form>
-          </>
-        </div>
-
-    </>
-  );
+  )
 }

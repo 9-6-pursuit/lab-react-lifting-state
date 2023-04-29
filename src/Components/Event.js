@@ -1,21 +1,24 @@
 //import { update } from "cypress/types/lodash";
 import Attendees from "./Attendees";
 
-export default function Event( { event, attendees, toggleEventAttendees, showAttendees, updateEventAttendance } ) {
-
-
-        return (
-          <>
-            <li key={event.id}>
-              <img src={event.eventImage} alt={event.name} />
-              <h5>
-                {event.name} {event.eventType}
-              </h5>
-              <br />
-              <span>Organized by: {event.organizer} </span>
-              <br />
-              <>
-                <button onClick={toggleEventAttendees}>
+export default function Event({
+  event,
+  attendees,
+  toggleEventAttendees,
+  showAttendees,
+  updateEventAttendance,
+}) {
+  return (
+    <li key={event.id}>
+      <img src={event.eventImage} alt={event.name} />
+      <h5>
+        {event.name} {event.eventType}
+      </h5>
+      <br />
+      <span>Organized by: {event.organizer} </span>
+      <br />
+      <>
+        {/* <button onClick={toggleEventAttendees}>
                   {!showAttendees ? "Show Attendees" : "Hide Attendees"}
                 </button>
 
@@ -30,9 +33,8 @@ export default function Event( { event, attendees, toggleEventAttendees, showAtt
                       </>
                     ))}
                   </div>
-                ) : null}
-              </>
-            </li>
-          </>
-        );
-      }
+                ) : null} */}
+      </>
+    </li>
+  );
+}
