@@ -1,16 +1,14 @@
 import { useState } from "react";
 import eventsData from "./data";
 import { v1 as generateUniqueID } from "uuid";
-// import Attendees from "./Attendees";
+import Attendees from "./Components/Attendees";
 import Event from "./Components/Event";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
-// import NewEventForm from "./Components/NewEventForm";
+import NewEventForm from "./Components/NewEventForm";
 
 function App() {
   const [events, setEvents] = useState(eventsData);
-
-  const [showAttendees, setShowAttendees] = useState(false);
 
   const [selectOption, setSelectOption] = useState("");
 
@@ -70,9 +68,7 @@ function App() {
     setEvents([event, ...events]);
   }
 
-  function toggleEventAttendees() {
-    setShowAttendees(!showAttendees);
-  }
+  
 
   function updateEventAttendance(eventId, attendeeId) {
     const eventArray = [...events];
@@ -142,8 +138,6 @@ function App() {
                 event={event}
                 attendees={attendees}
                 updateEventAttendance={updateEventAttendance}
-                showAttendees={showAttendees}
-                toggleEventAttendees={toggleEventAttendees}
                 />
               );
             })}
