@@ -4,7 +4,6 @@ import Attendees from "./Attendees";
 export default function Event({
   event,
   attendees,
-  toggleEventAttendees,
   updateEventAttendance,
 }) {
   return (
