@@ -1,3 +1,5 @@
 export default function NewEventForm({ handleAddEvent }) {
-  return;
+  return(
+    <handleAddEvent handleAddEvent={handleAddEvent}/>
+  )
 }
