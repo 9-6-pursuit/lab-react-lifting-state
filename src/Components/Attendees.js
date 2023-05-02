@@ -6,7 +6,6 @@ export default function Attendees({event,updateEventAttendance,attendees}) {
     setShowAttendees(!showAttendees);
   }
   return (
-    
     <>
       <button onClick={toggleEventAttendees}>
         {!showAttendees ? "Show Attendees" : "Hide Attendees"}
