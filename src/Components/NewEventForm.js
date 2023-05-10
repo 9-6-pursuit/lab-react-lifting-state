@@ -1,3 +1,3 @@
-export default function NewEventForm({ handleAddEvent }) {
+export default function NewEventForm( ) {
   return;
 }
